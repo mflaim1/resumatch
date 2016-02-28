@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="401" y="176"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="uRc-bZ-lvI">
             <objects>
-                <viewController id="u7B-cF-am5" sceneMemberID="viewController">
+                <viewController id="u7B-cF-am5" customClass="UISearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U4g-5s-Ttf"/>
                         <viewControllerLayoutGuide type="bottom" id="xPI-sp-cNP"/>
@@ -116,45 +116,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cv-RI-dwg">
-                                <rect key="frame" x="238" y="98" width="62" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="62" id="FXZ-nZ-oTS"/>
-                                </constraints>
+                                <rect key="frame" x="235" y="243" width="65" height="30"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="0.16888430714607239" green="0.073940135538578033" blue="0.38692903518676758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="searchButton:" destination="u7B-cF-am5" eventType="touchUpInside" id="fXM-rR-a7d"/>
                                     <segue destination="vXZ-lx-hvc" kind="push" id="aFs-OW-n2K"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nTa-aB-4ei">
-                                <rect key="frame" x="20" y="98" width="218" height="30"/>
+                                <rect key="frame" x="20" y="243" width="212" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="Klm-J0-zdr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Examples: Software Engineer, Graphic Designer, ... etc." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XFQ-mJ-UnM">
-                                <rect key="frame" x="20" y="136" width="280" height="45"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFQ-mJ-UnM">
+                                <rect key="frame" x="20" y="276" width="280" height="31"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Ez9-od-5Gr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="i.e. Software Engineer, Graphic Designer">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XFQ-mJ-UnM" firstAttribute="trailing" secondItem="6cv-RI-dwg" secondAttribute="trailing" id="2aM-kR-HNu"/>
-                            <constraint firstItem="6cv-RI-dwg" firstAttribute="top" secondItem="nTa-aB-4ei" secondAttribute="top" id="A0l-ip-okT"/>
-                            <constraint firstItem="nTa-aB-4ei" firstAttribute="top" secondItem="U4g-5s-Ttf" secondAttribute="bottom" constant="34" id="QwN-GP-2Rt"/>
+                            <constraint firstItem="nTa-aB-4ei" firstAttribute="top" secondItem="6cv-RI-dwg" secondAttribute="top" id="00d-Ea-rxa"/>
+                            <constraint firstItem="6cv-RI-dwg" firstAttribute="trailing" secondItem="XFQ-mJ-UnM" secondAttribute="trailing" id="FcY-nc-um1"/>
+                            <constraint firstItem="XFQ-mJ-UnM" firstAttribute="top" secondItem="nTa-aB-4ei" secondAttribute="bottom" constant="3" id="LvD-Ux-D5e"/>
                             <constraint firstItem="XFQ-mJ-UnM" firstAttribute="centerX" secondItem="TfI-xV-vq1" secondAttribute="centerX" id="RWR-yy-Ox3"/>
-                            <constraint firstItem="6cv-RI-dwg" firstAttribute="leading" secondItem="nTa-aB-4ei" secondAttribute="trailing" id="Sgb-Mj-eP7"/>
-                            <constraint firstItem="XFQ-mJ-UnM" firstAttribute="top" secondItem="nTa-aB-4ei" secondAttribute="bottom" constant="8" symbolic="YES" id="fdx-1C-ZyM"/>
-                            <constraint firstItem="XFQ-mJ-UnM" firstAttribute="leading" secondItem="nTa-aB-4ei" secondAttribute="leading" id="hp3-ts-fen"/>
+                            <constraint firstItem="nTa-aB-4ei" firstAttribute="top" secondItem="U4g-5s-Ttf" secondAttribute="bottom" constant="179" id="ajU-jH-Tbo"/>
+                            <constraint firstItem="6cv-RI-dwg" firstAttribute="leading" secondItem="nTa-aB-4ei" secondAttribute="trailing" constant="3" id="rIa-Iz-7IU"/>
+                            <constraint firstItem="nTa-aB-4ei" firstAttribute="leading" secondItem="XFQ-mJ-UnM" secondAttribute="leading" id="tEs-Vt-wBg"/>
                             <constraint firstItem="XFQ-mJ-UnM" firstAttribute="leading" secondItem="TfI-xV-vq1" secondAttribute="leadingMargin" constant="4" id="yop-eR-Dwp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gsX-LD-M1y"/>
+                    <navigationItem key="navigationItem" id="TaC-FE-7ws"/>
+                    <connections>
+                        <outlet property="searchButton" destination="6cv-RI-dwg" id="1QT-bu-Upw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCG-Vb-c7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
