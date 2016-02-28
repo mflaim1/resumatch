@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04C3D77C1C829B4600DFC740 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3D77B1C829B4600DFC740 /* LaunchViewController.m */; };
 		3097E070421617B71863A72E /* GGDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3097ED2DFA3F142426FCB983 /* GGDraggableView.m */; };
 		3097E103B25AC84874CF8914 /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3097E42F3347B366F820E2BE /* bar@2x.png */; };
 		3097E5513D0B1042F48DC7D2 /* GGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3097ECFDFEB60A489C7C3045 /* GGView.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04C3D77A1C829B4600DFC740 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
+		04C3D77B1C829B4600DFC740 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		3097E42F3347B366F820E2BE /* bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar@2x.png"; sourceTree = "<group>"; };
 		3097E87A09F37B69F21F5395 /* GGOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGOverlayView.h; sourceTree = "<group>"; };
 		3097E8816E477D6DF94230B5 /* thumbs_up_300x300@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs_up_300x300@2x.png"; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 		CCD535E21889D55400146C68 = {
 			isa = PBXGroup;
 			children = (
+				04C3D77A1C829B4600DFC740 /* LaunchViewController.h */,
+				04C3D77B1C829B4600DFC740 /* LaunchViewController.m */,
 				CCD535F41889D55400146C68 /* Resumatch */,
 				CCD536131889D55400146C68 /* TinderLikeAnimationsTests */,
 				CCD535ED1889D55400146C68 /* Frameworks */,
@@ -336,6 +341,7 @@
 				CCD536051889D55400146C68 /* ViewController.m in Sources */,
 				CCD535FF1889D55400146C68 /* AppDelegate.m in Sources */,
 				CCD535FB1889D55400146C68 /* main.m in Sources */,
+				04C3D77C1C829B4600DFC740 /* LaunchViewController.m in Sources */,
 				3097E5513D0B1042F48DC7D2 /* GGView.m in Sources */,
 				3097E070421617B71863A72E /* GGDraggableView.m in Sources */,
 				3097EF04FECAB8AFEC8B1B3A /* GGOverlayView.m in Sources */,
