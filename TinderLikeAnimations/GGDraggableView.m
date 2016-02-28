@@ -90,6 +90,8 @@
     self.overlayView = [[GGOverlayView alloc] initWithFrame:self.bounds];
     self.overlayView.alpha = 0;
     self.layer.cornerRadius = 10;
+    scrollview.layer.cornerRadius=10;
+    imageView.layer.cornerRadius = 10;
     //imageView.layer.masksToBounds = YES;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];

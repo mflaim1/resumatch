@@ -12,9 +12,7 @@
     if (!self) return nil;
 
     self.backgroundColor = [UIColor whiteColor];
-    //self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"trollface_300x200"]];
-    [self addSubview:self.imageView];
-
+    self.layer.cornerRadius=10;
     return self;
 }
 
