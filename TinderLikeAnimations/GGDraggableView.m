@@ -35,7 +35,7 @@
 
     
 
-    self.overlayView = [[GGOverlayView alloc] initWithFrame:CGRectMake(10, 10, 300, 400)];
+    self.overlayView = [[GGOverlayView alloc] initWithFrame:CGRectMake(20, 100, 300, 450)];
     self.overlayView.alpha = 0;
     [self addSubview:self.overlayView];
     
@@ -85,35 +85,23 @@
 - (void)loadImageAndStyle
 {
     //create scrollview and add as subview and add this image as the scrollviews subview
-    scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, 300, 400)];
+    scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(20, 100, 300, 450)];
    
-    scrollview.contentSize = CGSizeMake(300, 400);
+    scrollview.contentSize = CGSizeMake(300, 300);
     scrollview.delegate=self;
     [self addSubview:scrollview];
-
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 500)];
+    scrollview.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 100, 300, 450)];
+    
     imageView.image=[UIImage imageNamed:currArray[index]];
-    
-
-    
+        
 
     [scrollview addSubview:imageView];
     self.overlayView = [[GGOverlayView alloc] initWithFrame:self.bounds];
     self.overlayView.alpha = 0;
-    self.layer.cornerRadius = 10;
-    scrollview.layer.cornerRadius=10;
-    imageView.layer.cornerRadius = 10;
-    //imageView.layer.masksToBounds = YES;
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
-    UITapGestureRecognizer *twoFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTwoFingerTap:)];
-    
-    [doubleTap setNumberOfTapsRequired:2];
-    [twoFingerTap setNumberOfTouchesRequired:2];
+  
     
     //Adding gesture recognizer
-    [imageView addGestureRecognizer:doubleTap];
-    [imageView addGestureRecognizer:twoFingerTap];
     
 
     
@@ -124,7 +112,7 @@
     scrollview.zoomScale = minimumScale;
     [scrollview setContentMode:UIViewContentModeScaleAspectFit];
     //[imageView sizeToFit];
-    [scrollview setContentSize:CGSizeMake(imageView.frame.size.width, imageView.frame.size.height)];
+
 
     [imageView addSubview:self.overlayView];
 }
@@ -186,15 +174,6 @@
     }
 }
 
-- (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
-
-    CGFloat offsetX = (scrollview.bounds.size.width > scrollview.contentSize.width)?
-    (scrollview.bounds.size.width - scrollview.contentSize.width) * 0.5 : 0.0;
-    CGFloat offsetY = (scrollview.bounds.size.height > scrollview.contentSize.height)?
-    (scrollview.bounds.size.height - scrollview.contentSize.height) * 0.5 : 0.0;
-    imageView.center = CGPointMake(scrollview.contentSize.width * 0.5 + offsetX,
-                                   scrollview.contentSize.height * 0.5 + offsetY);
-}
 
 - (void)viewDidUnload {
     self.scrollview = nil;
@@ -206,44 +185,15 @@
 #pragma mark UIScrollViewDelegate methods
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return imageView;
+       return imageView;
 }
 
 #pragma mark TapDetectingImageViewDelegate methods
 
-- (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
-    // zoom in
-
-    float newScale = [scrollview zoomScale] * ZOOM_STEP;
-    
-    if (newScale > self.scrollview.maximumZoomScale){
-        newScale = self.scrollview.minimumZoomScale;
-        CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[gestureRecognizer locationInView:gestureRecognizer.view]];
-        
-        [scrollview zoomToRect:zoomRect animated:YES];
-        
-    }
-    else{
-        
-        newScale = self.scrollview.maximumZoomScale;
-        CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[gestureRecognizer locationInView:gestureRecognizer.view]];
-        
-        [scrollview zoomToRect:zoomRect animated:YES];
-    }
-}
-
-
-- (void)handleTwoFingerTap:(UIGestureRecognizer *)gestureRecognizer {
-    // two-finger tap zooms out
-
-    float newScale = [scrollview zoomScale] / ZOOM_STEP;
-    CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[gestureRecognizer locationInView:gestureRecognizer.view]];
-    [scrollview zoomToRect:zoomRect animated:YES];
-}
 
 #pragma mark Utility methods
 
-- (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
+/*- (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
     
     CGRect zoomRect;
     
@@ -258,7 +208,7 @@
     zoomRect.origin.y    = center.y - (zoomRect.size.height / 2.0);
     
     return zoomRect;
-}
+}*/
 
 
 - (void)updateOverlay:(CGFloat)distance

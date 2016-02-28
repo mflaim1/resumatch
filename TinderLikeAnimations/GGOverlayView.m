@@ -31,7 +31,8 @@
        // self.imageView.image = [UIImage imageNamed:@"thumbs_up_300x300"];
          //self.frame = CGRectMake(0, 0, 50, 50);
     }
-     self.frame = CGRectMake(10, 10, 300, 400);
+     //self.frame = CGRectMake(self.center.x, self.center.y,300, 500);
+    
 }
 
 - (void)layoutSubviews
