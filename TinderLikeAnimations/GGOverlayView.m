@@ -26,13 +26,14 @@
     if (mode == GGOverlayViewModeLeft) {
         //self.imageView.image = [UIImage imageNamed:@"trollface_300x200"];
        self.backgroundColor=[UIColor greenColor];
-         //self.frame = CGRectMake(0, 0, 50, 50);
+        
     } else {
         
          self.backgroundColor=[UIColor redColor];
        // self.imageView.image = [UIImage imageNamed:@"thumbs_up_300x300"];
          //self.frame = CGRectMake(0, 0, 50, 50);
     }
+     self.frame = CGRectMake(10, 10, 300, 400);
 }
 
 - (void)layoutSubviews
