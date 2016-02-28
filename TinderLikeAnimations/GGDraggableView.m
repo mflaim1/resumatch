@@ -15,13 +15,17 @@
 @property(nonatomic,strong) UIImageView *imageView;
 @property(nonatomic,strong) UIScrollView *scrollview;
 @property int index;
+@property NSString *tag;
+@property NSMutableArray *currArray;
 
 @end
 
 @implementation GGDraggableView
-@synthesize scrollview,imageView,marketingArray, index;
+@synthesize scrollview,imageView, engineerArray, marketingArray, accountantArray, adminAssistantArray, index, tag, tagDict, photoDict, currArray;
 - (id)initWithFrame:(CGRect)frame
 {
+    //hard coded this tag for now - eventually this will read in from the search field
+    tag = @"Marketing";
     index=0;
     self = [super initWithFrame:frame];
     if (!self) return nil;
@@ -29,23 +33,23 @@
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragged:)];
     [self addGestureRecognizer:self.panGestureRecognizer];
 
-    [self loadImageAndStyle];
+    
 
     self.overlayView = [[GGOverlayView alloc] initWithFrame:self.bounds];
     self.overlayView.alpha = 0;
     [self addSubview:self.overlayView];
     
     //create the dictionaries here
-    NSMutableDictionary *tagDict= [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *photoDict= [[NSMutableDictionary alloc] init];
+    tagDict= [[NSMutableDictionary alloc] init];
+    photoDict= [[NSMutableDictionary alloc] init];
     
  
     
     //Arrays of Resumes based on tags
-    NSArray *engineerArray = [NSArray arrayWithObjects:@"Charles_Evans.png", @"Grace_West.png",nil];
+    engineerArray = [NSMutableArray arrayWithObjects:@"Charles_Evans.png", @"Grace_West.png",nil];
     marketingArray = [NSMutableArray arrayWithObjects:@"Aiden_Day.png", @"Monica_Watson.png", @"Karen_Meyer.png", @"Ethan_Burton.png", @"Valerie_Wilmer.png",nil];
-    NSArray *accountantArray = [NSArray arrayWithObjects:@"Jesse_Kendall.png", @"Bea_Counter.png",nil];
-    NSArray *adminAssistantArray = [NSArray arrayWithObjects:@"Jane_Smith.png", @"Avery_Walker.png",nil];
+    accountantArray = [NSMutableArray arrayWithObjects:@"Jesse_Kendall.png", @"Bea_Counter.png",nil];
+    adminAssistantArray = [NSMutableArray arrayWithObjects:@"Jane_Smith.png", @"Avery_Walker.png",nil];
     
     
     
@@ -65,13 +69,15 @@
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Bea_Counter.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Avery_Walker.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Jane_Smith.png"];
-    [photoDict setObject:[NSNumber numberWithBool:true] forKey:@"Monica_Watson.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Monica_Watson.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Karen_Meyer.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Ethan_Burton.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Valerie_Wilmer.png"];
     NSLog(@"%@", photoDict);
 
+    currArray =[tagDict objectForKey:tag];
 
+    [self loadImageAndStyle];
     return self;
 }
 
@@ -85,7 +91,9 @@
     scrollview.delegate=self;
     [self addSubview:scrollview];
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 500)];
-    imageView.image=[UIImage imageNamed:@"resume"];
+    imageView.image=[UIImage imageNamed:currArray[index]];
+    
+    
     [scrollview addSubview:imageView];
     self.overlayView = [[GGOverlayView alloc] initWithFrame:self.bounds];
     self.overlayView.alpha = 0;
@@ -141,15 +149,21 @@
         case UIGestureRecognizerStateEnded: {
             //load another picture here
             //make an index variable and have it load the next index when the previous image is swiped
+          
+            NSLog(@"Bool before: %@", [photoDict objectForKey:currArray[index]]);
+            if( self.overlayView.mode == 0){
+                [photoDict setObject:[NSNumber numberWithBool:true] forKey:currArray[index]];
+            }
+            
+            
             [self resetViewPositionAndTransformations];
             
             //need to index through the resumes here
             index++;
-            if(index >= marketingArray.count){
+            if(index >= currArray.count ){
                 index = 0;
             }
-            NSLog(@" Array %@",marketingArray[index]);
-            imageView.image = [UIImage imageNamed:marketingArray[index]];
+            imageView.image = [UIImage imageNamed:currArray[index]];
             break;
         };
         case UIGestureRecognizerStatePossible:break;
