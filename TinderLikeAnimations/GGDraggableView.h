@@ -10,7 +10,7 @@
 @class GGOverlayView;
 
 
-@interface GGDraggableView : UIView
+@interface GGDraggableView : UIView <UIScrollViewDelegate>
 
 
 @end
