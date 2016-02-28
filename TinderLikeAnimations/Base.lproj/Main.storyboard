@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Launch View Controller-->
         <scene sceneID="176-y2-OEM">
             <objects>
-                <viewController id="KRX-kc-f3W" sceneMemberID="viewController">
+                <viewController id="KRX-kc-f3W" customClass="LaunchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V6W-3P-Bgh"/>
                         <viewControllerLayoutGuide type="bottom" id="yCX-Vk-ajT"/>
@@ -18,32 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T11-Tl-th7">
-                                <rect key="frame" x="94" y="177" width="133" height="43"/>
-                                <color key="backgroundColor" red="0.65490196078431373" green="0.58431372549019611" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <size key="titleShadowOffset" width="3" height="2"/>
-                                <state key="normal" title="Applicant">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Applicant">
-                                            <attributes>
-                                                <color key="NSColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="26" name="CenturyGothic"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="titleColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-2T-DEe">
-                                <rect key="frame" x="94" y="255" width="133" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-2T-DEe">
+                                <rect key="frame" x="60" y="462" width="201" height="60"/>
                                 <color key="backgroundColor" red="0.65490196078431373" green="0.58431372549019611" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="8xf-9c-0CS"/>
+                                    <constraint firstAttribute="height" constant="60" id="UjB-hI-Q3g"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <size key="titleShadowOffset" width="3" height="2"/>
-                                <state key="normal" title="Recruiter">
+                                <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Recruiter">
                                             <attributes>
@@ -55,22 +38,72 @@
                                     <color key="titleColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="RecruiterButton:" destination="KRX-kc-f3W" eventType="touchUpInside" id="Hla-U8-hjX"/>
                                     <segue destination="u7B-cF-am5" kind="push" id="Bq9-db-qjH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T11-Tl-th7">
+                                <rect key="frame" x="60" y="376" width="201" height="60"/>
+                                <color key="backgroundColor" red="0.65490196078431373" green="0.58431372549019611" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="bK7-vh-DO3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <size key="titleShadowOffset" width="3" height="2"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Applicant">
+                                            <attributes>
+                                                <color key="NSColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="26" name="CenturyGothic"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="titleColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ApplicantButton:" destination="KRX-kc-f3W" eventType="touchUpInside" id="WfZ-jM-JhT"/>
+                                    <action selector="RecruiterButton:" destination="KRX-kc-f3W" eventType="touchUpInside" id="IyL-Sg-rgw"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resumatch.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bqa-Cb-0AP">
+                                <rect key="frame" x="40" y="82" width="241" height="191"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="191" id="tnN-ub-Zeq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Log in As" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99p-2M-RP2">
+                                <rect key="frame" x="118" y="333" width="85" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="QOp-t8-ZhR"/>
+                                    <constraint firstAttribute="height" constant="21" id="wg4-WX-E1L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="T11-Tl-th7" firstAttribute="top" secondItem="V6W-3P-Bgh" secondAttribute="bottom" constant="113" id="0AZ-MX-EPC"/>
-                            <constraint firstItem="T11-Tl-th7" firstAttribute="centerX" secondItem="CcY-0Y-qfZ" secondAttribute="centerX" id="32w-Zq-VPI"/>
-                            <constraint firstItem="yCX-Vk-ajT" firstAttribute="top" secondItem="zaT-2T-DEe" secondAttribute="bottom" constant="270" id="8CN-zb-Rjc"/>
-                            <constraint firstItem="zaT-2T-DEe" firstAttribute="trailing" secondItem="T11-Tl-th7" secondAttribute="trailing" id="JH0-CV-dLR"/>
-                            <constraint firstItem="zaT-2T-DEe" firstAttribute="leading" secondItem="T11-Tl-th7" secondAttribute="leading" id="lto-gy-RPn"/>
-                            <constraint firstItem="zaT-2T-DEe" firstAttribute="leading" secondItem="CcY-0Y-qfZ" secondAttribute="leadingMargin" constant="78" id="pbj-tP-SET"/>
-                            <constraint firstItem="zaT-2T-DEe" firstAttribute="top" secondItem="T11-Tl-th7" secondAttribute="bottom" constant="35" id="pq1-KC-ohP"/>
+                            <constraint firstItem="Bqa-Cb-0AP" firstAttribute="leading" secondItem="CcY-0Y-qfZ" secondAttribute="leadingMargin" constant="24" id="3fc-RD-o2e"/>
+                            <constraint firstItem="Bqa-Cb-0AP" firstAttribute="centerX" secondItem="99p-2M-RP2" secondAttribute="centerX" id="7xi-Qc-WGe"/>
+                            <constraint firstItem="99p-2M-RP2" firstAttribute="top" secondItem="Bqa-Cb-0AP" secondAttribute="bottom" constant="60" id="91f-tP-gGl"/>
+                            <constraint firstItem="T11-Tl-th7" firstAttribute="top" secondItem="99p-2M-RP2" secondAttribute="bottom" constant="22" id="COV-NF-k48"/>
+                            <constraint firstItem="zaT-2T-DEe" firstAttribute="top" secondItem="T11-Tl-th7" secondAttribute="bottom" constant="26" id="Cwj-kM-vcN"/>
+                            <constraint firstItem="yCX-Vk-ajT" firstAttribute="top" secondItem="zaT-2T-DEe" secondAttribute="bottom" constant="46" id="Cwl-N2-3Jb"/>
+                            <constraint firstItem="zaT-2T-DEe" firstAttribute="centerX" secondItem="CcY-0Y-qfZ" secondAttribute="centerX" id="FAN-9r-8jM"/>
+                            <constraint firstItem="Bqa-Cb-0AP" firstAttribute="centerX" secondItem="T11-Tl-th7" secondAttribute="centerX" id="SuG-tS-c5u"/>
+                            <constraint firstItem="T11-Tl-th7" firstAttribute="leading" secondItem="zaT-2T-DEe" secondAttribute="leading" id="Us8-ZP-ieC"/>
+                            <constraint firstItem="Bqa-Cb-0AP" firstAttribute="centerX" secondItem="zaT-2T-DEe" secondAttribute="centerX" id="bGD-9b-uso"/>
+                            <constraint firstItem="zaT-2T-DEe" firstAttribute="leading" secondItem="CcY-0Y-qfZ" secondAttribute="leadingMargin" constant="44" id="qa4-x3-C9K"/>
+                            <constraint firstItem="Bqa-Cb-0AP" firstAttribute="top" secondItem="V6W-3P-Bgh" secondAttribute="bottom" constant="18" id="qbi-zU-rWE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qO1-2O-8KK"/>
+                    <connections>
+                        <outlet property="applicantButton" destination="T11-Tl-th7" id="gFL-rY-UwK"/>
+                        <outlet property="recruiterButton" destination="zaT-2T-DEe" id="vIO-P7-HDV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMj-jy-CQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,7 +177,7 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.65490196079999996" green="0.58431372550000005" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="fzZ-XR-2ek"/>
                 </viewController>
@@ -171,4 +204,7 @@
             <point key="canvasLocation" x="-569" y="387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="resumatch.png" width="852" height="760"/>
+    </resources>
 </document>
