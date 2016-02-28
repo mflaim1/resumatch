@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Launch View Controller-->
         <scene sceneID="176-y2-OEM">
             <objects>
-                <viewController id="KRX-kc-f3W" sceneMemberID="viewController">
+                <viewController id="KRX-kc-f3W" customClass="LaunchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V6W-3P-Bgh"/>
                         <viewControllerLayoutGuide type="bottom" id="yCX-Vk-ajT"/>
@@ -18,63 +18,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T11-Tl-th7">
-                                <rect key="frame" x="94" y="177" width="133" height="43"/>
-                                <color key="backgroundColor" red="0.65490196078431373" green="0.58431372549019611" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <size key="titleShadowOffset" width="3" height="2"/>
-                                <state key="normal" title="Applicant">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Applicant">
-                                            <attributes>
-                                                <color key="NSColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="26" name="CenturyGothic"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="titleColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-2T-DEe">
-                                <rect key="frame" x="94" y="255" width="133" height="43"/>
-                                <color key="backgroundColor" red="0.65490196078431373" green="0.58431372549019611" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="8xf-9c-0CS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <size key="titleShadowOffset" width="3" height="2"/>
-                                <state key="normal" title="Recruiter">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Recruiter">
-                                            <attributes>
-                                                <color key="NSColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="26" name="CenturyGothic"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="titleColor" red="0.094117647058823528" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="resumatch.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bqa-Cb-0AP">
+                                <rect key="frame" x="40" y="82" width="241" height="191"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log in As" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99p-2M-RP2">
+                                <rect key="frame" x="118" y="333" width="85" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYX-2z-cIe">
+                                <rect key="frame" x="97" y="386" width="127" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
-                                    <segue destination="u7B-cF-am5" kind="push" id="Bq9-db-qjH"/>
+                                    <action selector="ApplicantButton:" destination="KRX-kc-f3W" eventType="touchUpInside" id="NKE-0B-op4"/>
+                                    <segue destination="ARB-fu-xbU" kind="push" id="5nN-3r-QNy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKX-8m-503">
+                                <rect key="frame" x="97" y="438" width="127" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="RecruiterButton:" destination="KRX-kc-f3W" eventType="touchUpInside" id="UVG-x8-O1K"/>
+                                    <segue destination="u7B-cF-am5" kind="push" id="NnY-Ga-WoT"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="T11-Tl-th7" firstAttribute="top" secondItem="V6W-3P-Bgh" secondAttribute="bottom" constant="113" id="0AZ-MX-EPC"/>
-                            <constraint firstItem="T11-Tl-th7" firstAttribute="centerX" secondItem="CcY-0Y-qfZ" secondAttribute="centerX" id="32w-Zq-VPI"/>
-                            <constraint firstItem="yCX-Vk-ajT" firstAttribute="top" secondItem="zaT-2T-DEe" secondAttribute="bottom" constant="270" id="8CN-zb-Rjc"/>
-                            <constraint firstItem="zaT-2T-DEe" firstAttribute="trailing" secondItem="T11-Tl-th7" secondAttribute="trailing" id="JH0-CV-dLR"/>
-                            <constraint firstItem="zaT-2T-DEe" firstAttribute="leading" secondItem="T11-Tl-th7" secondAttribute="leading" id="lto-gy-RPn"/>
-                            <constraint firstItem="zaT-2T-DEe" firstAttribute="leading" secondItem="CcY-0Y-qfZ" secondAttribute="leadingMargin" constant="78" id="pbj-tP-SET"/>
-                            <constraint firstItem="zaT-2T-DEe" firstAttribute="top" secondItem="T11-Tl-th7" secondAttribute="bottom" constant="35" id="pq1-KC-ohP"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="qO1-2O-8KK"/>
+                    <connections>
+                        <outlet property="applicantButton" destination="HYX-2z-cIe" id="JzG-dK-pIY"/>
+                        <outlet property="recruiterButton" destination="MKX-8m-503" id="CvV-yZ-AEK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMj-jy-CQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-37" y="387"/>
+        </scene>
+        <!--Applicant Controller-->
+        <scene sceneID="BFH-5f-eSD">
+            <objects>
+                <viewController id="ARB-fu-xbU" customClass="ApplicantController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Ag-dv-9ki"/>
+                        <viewControllerLayoutGuide type="bottom" id="E1A-Nd-jcW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NT6-vT-zQV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU7-0n-FCS">
+                                <rect key="frame" x="51" y="144" width="218" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="uploadResume:" destination="ARB-fu-xbU" eventType="touchUpInside" id="mcx-B2-Nrh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add tags (i.e. Software Engineer)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S7g-PM-PzJ">
+                                <rect key="frame" x="32" y="201" width="256" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xy8-zD-KPV">
+                                <rect key="frame" x="119" y="384" width="83" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="submitProfile:" destination="ARB-fu-xbU" eventType="touchUpInside" id="Lm9-Cc-kDw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="w9F-bM-eeO"/>
+                    <connections>
+                        <outlet property="SubmitProfileButton" destination="Xy8-zD-KPV" id="cxj-R5-Zdj"/>
+                        <outlet property="uploadResumeButton" destination="PU7-0n-FCS" id="pjc-Jt-Qzw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ek6-qX-zBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="176"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uRc-bZ-lvI">
@@ -131,9 +158,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCG-Vb-c7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="370" y="387"/>
+            <point key="canvasLocation" x="401" y="797"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -144,9 +171,9 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.65490196079999996" green="0.58431372550000005" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fzZ-XR-2ek"/>
+                    <navigationItem key="navigationItem" title="Title" id="3ly-n8-Ssp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -171,4 +198,7 @@
             <point key="canvasLocation" x="-569" y="387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="resumatch.png" width="852" height="760"/>
+    </resources>
 </document>
