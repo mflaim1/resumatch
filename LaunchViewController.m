@@ -25,7 +25,8 @@
     _applicantButton.layer.masksToBounds = YES;
     _applicantButton.layer.borderWidth = 3.0f;
     
-  
+    self.navigationController.navigationBar.tintColor=[UIColor blackColor];
+       self.navigationController.navigationBar.barTintColor=[UIColor lightGrayColor];
     
     [_recruiterButton setTitle:@"Recruiter" forState:UIControlStateNormal];
     _recruiterButton.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];

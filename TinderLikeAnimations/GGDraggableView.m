@@ -35,7 +35,7 @@
 
     
 
-    self.overlayView = [[GGOverlayView alloc] initWithFrame:CGRectMake(20, 100, 300, 450)];
+    self.overlayView = [[GGOverlayView alloc] initWithFrame:CGRectMake(20, 150, 300, 500)];
     self.overlayView.alpha = 0;
     [self addSubview:self.overlayView];
     
@@ -47,7 +47,7 @@
     
     //Arrays of Resumes based on tags
     engineerArray = [NSMutableArray arrayWithObjects:@"Charles_Evans.png", @"Grace_West.png",nil];
-    marketingArray = [NSMutableArray arrayWithObjects:@"Aiden_Day.png", @"Monica_Watson.png", @"Karen_Meyer.png", @"Ethan_Burton.png", @"Valerie_Wilmer.png",nil];
+    marketingArray = [NSMutableArray arrayWithObjects: @"Monica_Watson.png", @"Karen_Meyer.png", @"Ethan_Burton.png", @"Valerie_Wilmer.png",nil];
     accountantArray = [NSMutableArray arrayWithObjects:@"Jesse_Kendall.png", @"Bea_Counter.png",nil];
     adminAssistantArray = [NSMutableArray arrayWithObjects:@"Jane_Smith.png", @"Avery_Walker.png",nil];
     
@@ -64,7 +64,6 @@
     //default for images is false - they are not liked, then update the value when it is swiped
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Charles_Evans.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Grace_West.png"];
-    [photoDict setObject:[NSNumber numberWithBool:false]forKey:@"Aiden_Day.png"];
     [photoDict setObject:[NSNumber numberWithBool:false]forKey:@"Jesse_Kendall.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Bea_Counter.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Avery_Walker.png"];
@@ -85,13 +84,13 @@
 - (void)loadImageAndStyle
 {
     //create scrollview and add as subview and add this image as the scrollviews subview
-    scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(20, 100, 300, 450)];
+    scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(20, 150, 300, 500)];
    
-    scrollview.contentSize = CGSizeMake(300, 300);
+    //scrollview.contentSize = CGSizeMake(300, 300);
     scrollview.delegate=self;
     [self addSubview:scrollview];
     scrollview.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 100, 300, 450)];
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 150, 300, 500)];
     
     imageView.image=[UIImage imageNamed:currArray[index]];
         
@@ -145,7 +144,7 @@
         case UIGestureRecognizerStateEnded: {
             if(xDistance >=140||xDistance<=-150){
                 NSLog(@"Bool before: %@", [photoDict objectForKey:currArray[index]]);
-                if( self.overlayView.mode == 0){
+                if( self.overlayView.mode == 1){
                     [photoDict setObject:[NSNumber numberWithBool:true] forKey:currArray[index]];
                 }
                 
