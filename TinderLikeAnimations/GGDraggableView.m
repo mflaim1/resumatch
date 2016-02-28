@@ -31,7 +31,7 @@
 
     [self loadImageAndStyle];
 
-    self.overlayView = [[GGOverlayView alloc] initWithFrame:self.bounds];
+    self.overlayView = [[GGOverlayView alloc] initWithFrame:CGRectMake(10, 10, 300, 400)];
     self.overlayView.alpha = 0;
     [self addSubview:self.overlayView];
     
@@ -79,16 +79,18 @@
 - (void)loadImageAndStyle
 {
     //create scrollview and add as subview and add this image as the scrollviews subview
-    scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 300, 500)];
+    scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, 300, 400)];
    
-    scrollview.contentSize = CGSizeMake(300, 500);
+    scrollview.contentSize = CGSizeMake(300, 400);
     scrollview.delegate=self;
     [self addSubview:scrollview];
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 500)];
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 400)];
     imageView.image=[UIImage imageNamed:@"resume"];
     [scrollview addSubview:imageView];
     self.overlayView = [[GGOverlayView alloc] initWithFrame:self.bounds];
     self.overlayView.alpha = 0;
+    self.layer.cornerRadius = 10;
+    //imageView.layer.masksToBounds = YES;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
     UITapGestureRecognizer *twoFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTwoFingerTap:)];
@@ -117,6 +119,7 @@
 - (void)dragged:(UIPanGestureRecognizer *)gestureRecognizer
 {
     CGFloat xDistance = [gestureRecognizer translationInView:self].x;
+    NSLog(@"x distance: %f",xDistance);
     CGFloat yDistance = [gestureRecognizer translationInView:self].y;
 
     switch (gestureRecognizer.state) {
@@ -139,18 +142,24 @@
             break;
         };
         case UIGestureRecognizerStateEnded: {
+            if(xDistance >=140||xDistance<=-150){
+                
+                [self resetViewPositionAndTransformations];
+                
+                //need to index through the resumes here
+                index++;
+                if(index >= marketingArray.count){
+                    index = 0;
+                }
+                NSLog(@" Array %@",marketingArray[index]);
+                imageView.image = [UIImage imageNamed:marketingArray[index]];
+
+            }else{
+                [self goBack];
+            }
             //load another picture here
             //make an index variable and have it load the next index when the previous image is swiped
-            [self resetViewPositionAndTransformations];
-            
-            //need to index through the resumes here
-            index++;
-            if(index >= marketingArray.count){
-                index = 0;
-            }
-            NSLog(@" Array %@",marketingArray[index]);
-            imageView.image = [UIImage imageNamed:marketingArray[index]];
-            break;
+               break;
         };
         case UIGestureRecognizerStatePossible:break;
         case UIGestureRecognizerStateCancelled:break;
@@ -159,6 +168,7 @@
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
+
     CGFloat offsetX = (scrollview.bounds.size.width > scrollview.contentSize.width)?
     (scrollview.bounds.size.width - scrollview.contentSize.width) * 0.5 : 0.0;
     CGFloat offsetY = (scrollview.bounds.size.height > scrollview.contentSize.height)?
@@ -184,6 +194,7 @@
 
 - (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
     // zoom in
+
     float newScale = [scrollview zoomScale] * ZOOM_STEP;
     
     if (newScale > self.scrollview.maximumZoomScale){
@@ -205,6 +216,7 @@
 
 - (void)handleTwoFingerTap:(UIGestureRecognizer *)gestureRecognizer {
     // two-finger tap zooms out
+
     float newScale = [scrollview zoomScale] / ZOOM_STEP;
     CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[gestureRecognizer locationInView:gestureRecognizer.view]];
     [scrollview zoomToRect:zoomRect animated:YES];
@@ -240,16 +252,29 @@
     CGFloat overlayStrength = MIN(fabsf(distance) / 100, 0.4);
     self.overlayView.alpha = overlayStrength;
 }
-
-- (void)resetViewPositionAndTransformations
-{
-    
+-(void)goBack{
     [UIView animateWithDuration:0.2
                      animations:^{
-        self.center = self.originalPoint;
-        self.transform = CGAffineTransformMakeRotation(0);
-        self.overlayView.alpha = 0;
+                         self.center = self.originalPoint;
+                         self.transform = CGAffineTransformMakeRotation(0);
+                         self.overlayView.alpha = 0;
+                     }];
+}
+- (void)resetViewPositionAndTransformations
+{
+    self.transform = CGAffineTransformMakeScale(0.01, 0.01);
+     self.center = self.originalPoint;
+    self.overlayView.alpha = 0;
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        self.transform = CGAffineTransformIdentity;
+          self.center = self.originalPoint;
+          self.overlayView.alpha = 0;
+    } completion:^(BOOL finished){
+        // if you want to do something once the animation finishes, put it here
     }];
+    
+
 }
 
 - (void)dealloc

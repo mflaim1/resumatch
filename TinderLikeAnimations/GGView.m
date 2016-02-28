@@ -23,7 +23,7 @@
 - (void)loadDraggableCustomView
 {
     //change size here
-    self.draggableView = [[GGDraggableView alloc] initWithFrame:CGRectMake(0, 0, 300, 500)];
+    self.draggableView = [[GGDraggableView alloc] initWithFrame:CGRectMake(0, 0, 300, 400)];
 
     [self addSubview:self.draggableView];
 }
