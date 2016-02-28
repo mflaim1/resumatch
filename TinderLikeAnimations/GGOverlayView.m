@@ -12,7 +12,7 @@
     if (!self) return nil;
 
     self.backgroundColor = [UIColor whiteColor];
-    self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"trollface_300x200"]];
+    //self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"trollface_300x200"]];
     [self addSubview:self.imageView];
 
     return self;
@@ -24,11 +24,14 @@
 
     _mode = mode;
     if (mode == GGOverlayViewModeLeft) {
-        self.imageView.image = [UIImage imageNamed:@"trollface_300x200"];
-         self.imageView.frame = CGRectMake(80, 80, 100, 100);
+        //self.imageView.image = [UIImage imageNamed:@"trollface_300x200"];
+       self.backgroundColor=[UIColor greenColor];
+         //self.frame = CGRectMake(0, 0, 50, 50);
     } else {
-        self.imageView.image = [UIImage imageNamed:@"thumbs_up_300x300"];
-         self.imageView.frame = CGRectMake(50, 50, 100, 100);
+        
+         self.backgroundColor=[UIColor redColor];
+       // self.imageView.image = [UIImage imageNamed:@"thumbs_up_300x300"];
+         //self.frame = CGRectMake(0, 0, 50, 50);
     }
 }
 
