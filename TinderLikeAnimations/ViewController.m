@@ -17,7 +17,7 @@
 
 - (void)loadView {
     self.view = [[GGView alloc] init];
-    self.view.backgroundColor=[UIColor purpleColor];
+    self.view.backgroundColor=[UIColor blackColor];
 }
 
 - (void)viewDidLoad
