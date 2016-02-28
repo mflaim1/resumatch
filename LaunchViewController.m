@@ -19,10 +19,16 @@
     // Do any additional setup after loading the view.
     
     //_applicantButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _recruiterButton.layer.shadowOffset = CGSizeMake(0.0, -8.0);
     _recruiterButton.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
-    _recruiterButton.layer.shadowColor = [UIColor blackColor].CGColor;
-    //_recruiterButton.layer.cornerRadius = [CGFloat(5.5, 8.1)];
+    _recruiterButton.layer.cornerRadius = 10;
+    
+    _recruiterButton.layer.masksToBounds = YES;
+    _recruiterButton.layer.borderWidth = 0.5f;
+    
+    _recruiterButton.layer.shadowColor = [UIColor redColor].CGColor;
+    _recruiterButton.layer.shadowOpacity = 20;
+    _recruiterButton.layer.shadowRadius = 12;
+    _recruiterButton.layer.shadowOffset = CGSizeMake(12.0f, 12.0f);
    
     
 }
