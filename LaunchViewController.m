@@ -17,20 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-    
-    [_applicantButton setTitle:@"Test" forState:UIControlStateNormal];
-    
-    
+
+    [_applicantButton setTitle:@"Applicant" forState:UIControlStateNormal];
+    _applicantButton.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
     _applicantButton.layer.backgroundColor = [UIColor whiteColor].CGColor;
     _applicantButton.layer.cornerRadius = 10;
     _applicantButton.layer.masksToBounds = YES;
     _applicantButton.layer.borderWidth = 3.0f;
     
-
+  
     
-    [_recruiterButton setTitle:@"RECRUITTest" forState:UIControlStateNormal];
+    [_recruiterButton setTitle:@"Recruiter" forState:UIControlStateNormal];
+    _recruiterButton.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
     _recruiterButton.layer.backgroundColor = [UIColor whiteColor].CGColor;
     _recruiterButton.layer.cornerRadius = 10;
     _recruiterButton.layer.masksToBounds = YES;
