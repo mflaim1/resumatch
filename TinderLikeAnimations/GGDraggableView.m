@@ -11,21 +11,25 @@
 @property (strong, nonatomic) NSMutableArray *engineerArray;
 @property (strong, nonatomic) NSMutableArray *marketingArray;
 @property (strong, nonatomic) NSMutableArray *accountantArray;
+@property (strong, nonatomic) NSMutableArray *engineerNames;
+@property (strong, nonatomic) NSMutableArray *marketingNames;
+@property (strong, nonatomic) NSMutableArray *accountantNames;
+@property (strong, nonatomic) NSMutableArray *adminAssistantNames;
 @property (strong, nonatomic) NSMutableArray *adminAssistantArray;
 @property(nonatomic,strong) UIImageView *imageView;
 @property(nonatomic,strong) UIScrollView *scrollview;
 @property int index;
-@property NSString *tag;
-@property NSMutableArray *currArray;
 
+@property NSMutableArray *currArray;
+@property NSMutableArray *nameArray;
 @end
 
 @implementation GGDraggableView
-@synthesize scrollview,imageView, engineerArray, marketingArray, accountantArray, adminAssistantArray, index, tag, tagDict, photoDict, currArray;
+@synthesize scrollview,imageView, engineerArray, marketingArray, accountantArray, adminAssistantArray, index, theTag, tagDict, photoDict, currArray;
 - (id)initWithFrame:(CGRect)frame
 {
     //hard coded this tag for now - eventually this will read in from the search field
-    tag = @"Marketing";
+    //theTag = @"Marketing";
     index=0;
     self = [super initWithFrame:frame];
     if (!self) return nil;
@@ -48,10 +52,16 @@
     //Arrays of Resumes based on tags
     engineerArray = [NSMutableArray arrayWithObjects:@"Charles_Evans.png", @"Grace_West.png",nil];
     marketingArray = [NSMutableArray arrayWithObjects: @"Monica_Watson.png", @"Karen_Meyer.png", @"Ethan_Burton.png", @"Valerie_Wilmer.png",nil];
-    accountantArray = [NSMutableArray arrayWithObjects:@"Jesse_Kendall.png", @"Bea_Counter.png",nil];
-    adminAssistantArray = [NSMutableArray arrayWithObjects:@"Jane_Smith.png", @"Avery_Walker.png",nil];
     
+    accountantArray = [NSMutableArray arrayWithObjects:@"Jesse_Kendall.png",nil];
+    adminAssistantArray = [NSMutableArray arrayWithObjects: @"Avery_Walker.png",nil];
     
+    self.engineerNames= [NSMutableArray arrayWithObjects:@"Charles Evans", @"Grace West",nil];
+    self.marketingNames = [NSMutableArray arrayWithObjects: @"Monica Watson", @"Karen Meyer", @"Ethan Burton", @"Valerie Wilmer",nil];
+    self.accountantNames = [NSMutableArray arrayWithObjects:@"Jesse Kendall",nil];
+    self.adminAssistantNames = [NSMutableArray arrayWithObjects: @"Avery Walker",nil];
+    
+    self.likes=[Likes sharedLikes];
     
     //tagDict keys are the tags and the values is a list of images that meet that tag
     [tagDict setObject:engineerArray forKey:@"Software Engineer"];
@@ -59,27 +69,49 @@
     [tagDict setObject:accountantArray forKey:@"Accountant"];
     [tagDict setObject:adminAssistantArray forKey:@"Admin Assistant"];
     NSLog(@"%@", tagDict);
-    
+    self.likes.likes=[[NSMutableArray alloc]init];
     //photoDict has the key as the photoName and they key as a bool if it is liked
     //default for images is false - they are not liked, then update the value when it is swiped
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Charles_Evans.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Grace_West.png"];
     [photoDict setObject:[NSNumber numberWithBool:false]forKey:@"Jesse_Kendall.png"];
-    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Bea_Counter.png"];
+
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Avery_Walker.png"];
-    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Jane_Smith.png"];
+
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Monica_Watson.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Karen_Meyer.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Ethan_Burton.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Valerie_Wilmer.png"];
     NSLog(@"%@", photoDict);
 
-    currArray =[tagDict objectForKey:tag];
+  
 
-    [self loadImageAndStyle];
+    
     return self;
 }
+-(void)loadTag{
+    NSLog(@"TAG IS : %@",theTag);
 
+    
+      currArray =[tagDict objectForKey:theTag];
+    if([theTag isEqualToString:@"Marketing"]){
+        self.nameArray=self.marketingNames;
+
+    }
+    if([theTag isEqualToString:@"Software Engineer"]){
+        self.nameArray=self.engineerNames;
+
+    }
+    if([theTag isEqualToString:@"Accountant"]){
+        self.nameArray=self.accountantNames;
+
+    }
+    if([theTag isEqualToString:@"Admin Assistant"]){
+        self.nameArray=self.marketingNames;
+
+    }
+        [self loadImageAndStyle];
+}
 
 - (void)loadImageAndStyle
 {
@@ -146,17 +178,18 @@
                 NSLog(@"Bool before: %@", [photoDict objectForKey:currArray[index]]);
                 if( self.overlayView.mode == 1){
                     [photoDict setObject:[NSNumber numberWithBool:true] forKey:currArray[index]];
+                    [self.likes.likes addObject:self.nameArray[index]];
                 }
                 
                 [self resetViewPositionAndTransformations];
                 
                 //need to index through the resumes here
                 index++;
-                if(index >= marketingArray.count){
+                if(index >= currArray.count){
                     index = 0;
                 }
-                NSLog(@" Array %@",marketingArray[index]);
-                imageView.image = [UIImage imageNamed:marketingArray[index]];
+                NSLog(@" Array %@",currArray[index]);
+                imageView.image = [UIImage imageNamed:currArray[index]];
 
             }else{
                 [self goBack];

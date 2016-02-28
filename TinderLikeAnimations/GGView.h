@@ -11,4 +11,7 @@
 
 
 @interface GGView : UIView
+@property(nonatomic, strong) GGDraggableView *draggableView;
+@property NSString *theTag;
+- (void)loadDraggableCustomView;
 @end

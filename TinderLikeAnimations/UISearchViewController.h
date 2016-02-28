@@ -11,5 +11,6 @@
 @interface UISearchViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIImageView *profileLogo;
+@property (weak, nonatomic) IBOutlet UITextField *searchField;
 
 @end

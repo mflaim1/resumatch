@@ -29,6 +29,8 @@
 		55F5A2C81C82863400AB2BEC /* Ethan_Burton.png in Resources */ = {isa = PBXBuildFile; fileRef = 55F5A2C51C82863400AB2BEC /* Ethan_Burton.png */; };
 		55F5A2C91C82863400AB2BEC /* Valerie_Wilmer.png in Resources */ = {isa = PBXBuildFile; fileRef = 55F5A2C61C82863400AB2BEC /* Valerie_Wilmer.png */; };
 		6A752D7A1C825EC70018B996 /* resume.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A752D791C825EC70018B996 /* resume.png */; };
+		6A752D7D1C8341010018B996 /* LikesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A752D7C1C8341010018B996 /* LikesTableViewController.m */; };
+		6A752D801C8348C20018B996 /* Likes.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A752D7F1C8348C20018B996 /* Likes.m */; };
 		CCD535EF1889D55400146C68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD535EE1889D55400146C68 /* Foundation.framework */; };
 		CCD535F11889D55400146C68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD535F01889D55400146C68 /* CoreGraphics.framework */; };
 		CCD535F31889D55400146C68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD535F21889D55400146C68 /* UIKit.framework */; };
@@ -84,6 +86,10 @@
 		55F5A2C51C82863400AB2BEC /* Ethan_Burton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ethan_Burton.png; sourceTree = "<group>"; };
 		55F5A2C61C82863400AB2BEC /* Valerie_Wilmer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Valerie_Wilmer.png; sourceTree = "<group>"; };
 		6A752D791C825EC70018B996 /* resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resume.png; sourceTree = "<group>"; };
+		6A752D7B1C8341010018B996 /* LikesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesTableViewController.h; sourceTree = "<group>"; };
+		6A752D7C1C8341010018B996 /* LikesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesTableViewController.m; sourceTree = "<group>"; };
+		6A752D7E1C8348C20018B996 /* Likes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Likes.h; sourceTree = "<group>"; };
+		6A752D7F1C8348C20018B996 /* Likes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Likes.m; sourceTree = "<group>"; };
 		CCD535EB1889D55400146C68 /* Resumatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resumatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCD535EE1889D55400146C68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CCD535F01889D55400146C68 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -205,6 +211,10 @@
 				3097E4AA193A1D6C857A82A5 /* images */,
 				3097E9F589737892FFCA70F0 /* GGOverlayView.m */,
 				3097E87A09F37B69F21F5395 /* GGOverlayView.h */,
+				6A752D7B1C8341010018B996 /* LikesTableViewController.h */,
+				6A752D7C1C8341010018B996 /* LikesTableViewController.m */,
+				6A752D7E1C8348C20018B996 /* Likes.h */,
+				6A752D7F1C8348C20018B996 /* Likes.m */,
 			);
 			name = Resumatch;
 			path = TinderLikeAnimations;
@@ -357,7 +367,9 @@
 				CCD536051889D55400146C68 /* ViewController.m in Sources */,
 				CCD535FF1889D55400146C68 /* AppDelegate.m in Sources */,
 				CCD535FB1889D55400146C68 /* main.m in Sources */,
+				6A752D801C8348C20018B996 /* Likes.m in Sources */,
 				04C3D77C1C829B4600DFC740 /* LaunchViewController.m in Sources */,
+				6A752D7D1C8341010018B996 /* LikesTableViewController.m in Sources */,
 				3097E5513D0B1042F48DC7D2 /* GGView.m in Sources */,
 				3097E070421617B71863A72E /* GGDraggableView.m in Sources */,
 				3097EF04FECAB8AFEC8B1B3A /* GGOverlayView.m in Sources */,

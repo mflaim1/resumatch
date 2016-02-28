@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GGView.h"
+#import "LikesTableViewController.h"
 
 @interface ViewController ()
 
@@ -16,9 +17,37 @@
 @implementation ViewController
 
 - (void)loadView {
-    self.view = [[GGView alloc] init];
+   GGView *theView=[[GGView alloc] init];
+    theView.theTag=self.theTag;
+    [theView loadDraggableCustomView ];
+    self.view =theView;
+    
     self.view.backgroundColor=[UIColor blackColor];
+    
+    UIBarButtonItem *customBtn=[[UIBarButtonItem alloc] initWithTitle:@"Likes" style:UIBarButtonItemStylePlain target:self action:@selector(customBtnPressed)];
+    [self.navigationItem setRightBarButtonItem:customBtn];
 }
+
+-(void)customBtnPressed{
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LikesTableViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"LikesTableViewController"];
+    //[self.playerControls closePlayer:YES animated:YES];
+    //self.playerControls.locked = YES;
+    
+    [self presentViewController:vc animated:YES completion:nil];
+    
+
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"seeLikes"])
+    {
+       // NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+       // NSDate *object = _objects[indexPath.row];
+        //[[segue destinationViewController] setDetailItem:object];
+    }
+}
+
 
 - (void)viewDidLoad
 {
