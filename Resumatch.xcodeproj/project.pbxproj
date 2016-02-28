@@ -13,6 +13,7 @@
 		3097E888C9D05B50ACCAC918 /* trollface_300x200@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3097ED200904B26C93504100 /* trollface_300x200@2x.png */; };
 		3097E9B38DFC38A07F22DEB2 /* thumbs_up_300x300@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3097E8816E477D6DF94230B5 /* thumbs_up_300x300@2x.png */; };
 		3097EF04FECAB8AFEC8B1B3A /* GGOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3097E9F589737892FFCA70F0 /* GGOverlayView.m */; };
+		6A752D7A1C825EC70018B996 /* resume.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A752D791C825EC70018B996 /* resume.png */; };
 		CCD535EF1889D55400146C68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD535EE1889D55400146C68 /* Foundation.framework */; };
 		CCD535F11889D55400146C68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD535F01889D55400146C68 /* CoreGraphics.framework */; };
 		CCD535F31889D55400146C68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD535F21889D55400146C68 /* UIKit.framework */; };
@@ -49,6 +50,7 @@
 		3097ECFDFEB60A489C7C3045 /* GGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGView.m; sourceTree = "<group>"; };
 		3097ED200904B26C93504100 /* trollface_300x200@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trollface_300x200@2x.png"; sourceTree = "<group>"; };
 		3097ED2DFA3F142426FCB983 /* GGDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGDraggableView.m; sourceTree = "<group>"; };
+		6A752D791C825EC70018B996 /* resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resume.png; sourceTree = "<group>"; };
 		CCD535EB1889D55400146C68 /* Resumatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resumatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCD535EE1889D55400146C68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CCD535F01889D55400146C68 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +99,7 @@
 		3097E4AA193A1D6C857A82A5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6A752D791C825EC70018B996 /* resume.png */,
 				3097E42F3347B366F820E2BE /* bar@2x.png */,
 				3097E8816E477D6DF94230B5 /* thumbs_up_300x300@2x.png */,
 				3097ED200904B26C93504100 /* trollface_300x200@2x.png */,
@@ -265,6 +268,7 @@
 				CCD535F91889D55400146C68 /* InfoPlist.strings in Resources */,
 				CCD536021889D55400146C68 /* Main.storyboard in Resources */,
 				3097E103B25AC84874CF8914 /* bar@2x.png in Resources */,
+				6A752D7A1C825EC70018B996 /* resume.png in Resources */,
 				3097E9B38DFC38A07F22DEB2 /* thumbs_up_300x300@2x.png in Resources */,
 				3097E888C9D05B50ACCAC918 /* trollface_300x200@2x.png in Resources */,
 			);
