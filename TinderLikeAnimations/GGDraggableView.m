@@ -5,6 +5,13 @@
 @property(nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 @property(nonatomic) CGPoint originalPoint;
 @property(nonatomic, strong) GGOverlayView *overlayView;
+@property (strong, nonatomic) NSMutableDictionary *tagDict ;
+//photoDict has the photoName as the key and whether is was liked or not as the value
+@property (strong, nonatomic) NSMutableDictionary *photoDict ;
+@property (strong, nonatomic) NSMutableArray *engineerArray;
+@property (strong, nonatomic) NSMutableArray *marketingArray;
+@property (strong, nonatomic) NSMutableArray *accountantArray;
+@property (strong, nonatomic) NSMutableArray *adminAssistantArray;
 @end
 
 @implementation GGDraggableView
@@ -22,6 +29,38 @@
     self.overlayView = [[GGOverlayView alloc] initWithFrame:self.bounds];
     self.overlayView.alpha = 0;
     [self addSubview:self.overlayView];
+    
+    //create the dictionaries here
+    NSMutableDictionary *tagDict= [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *photoDict= [[NSMutableDictionary alloc] init];
+    
+    //Arrays of Resumes based on tags
+    NSArray *engineerArray = [NSArray arrayWithObjects:@"Charles_Evans.png", @"Grace_West.png",nil];
+    NSArray *marketingArray = [NSArray arrayWithObjects:@"Aiden_Day.png", @"Monica_Watson.png",nil];
+    NSArray *accountantArray = [NSArray arrayWithObjects:@"Jesse_Kendall.png", @"Bea_Counter.png",nil];
+    NSArray *adminAssistantArray = [NSArray arrayWithObjects:@"Jane_Smith.png", @"Avery_Walker.png",nil];
+    
+    
+    
+    //tagDict keys are the tags and the values is a list of images that meet that tag
+    [tagDict setObject:engineerArray forKey:@"Software Engineer"];
+    [tagDict setObject:marketingArray  forKey:@"Marketing"];
+    [tagDict setObject:accountantArray forKey:@"Accountant"];
+    [tagDict setObject:adminAssistantArray forKey:@"Admin Assistant"];
+    NSLog(@"%@", tagDict);
+    
+    //photoDict has the key as the photoName and they key as a bool if it is liked
+    //default for images is false - they are not liked, then update the value when it is swiped
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Charles_Evans.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Grace_West.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false]forKey:@"Aiden_Day.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false]forKey:@"Jesse_Kendall.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Bea_Counter.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Avery_Walker.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Jane_Smith.png"];
+    [photoDict setObject:[NSNumber numberWithBool:true] forKey:@"Monica_Watson.png"];
+    NSLog(@"%@", photoDict);
+
 
     return self;
 }
