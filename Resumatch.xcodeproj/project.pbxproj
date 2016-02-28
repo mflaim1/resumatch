@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		04C3D77C1C829B4600DFC740 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3D77B1C829B4600DFC740 /* LaunchViewController.m */; };
 		04C3D77E1C82B45000DFC740 /* resumatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C3D77D1C82B45000DFC740 /* resumatch.png */; };
+		04C3D7811C82D22100DFC740 /* ApplicantController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3D7801C82D22100DFC740 /* ApplicantController.m */; };
+		04C3D7831C82D81F00DFC740 /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C3D7821C82D81F00DFC740 /* upload.png */; };
 		3097E070421617B71863A72E /* GGDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3097ED2DFA3F142426FCB983 /* GGDraggableView.m */; };
 		3097E103B25AC84874CF8914 /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3097E42F3347B366F820E2BE /* bar@2x.png */; };
 		3097E5513D0B1042F48DC7D2 /* GGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3097ECFDFEB60A489C7C3045 /* GGView.m */; };
@@ -57,6 +59,9 @@
 		04C3D77A1C829B4600DFC740 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		04C3D77B1C829B4600DFC740 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		04C3D77D1C82B45000DFC740 /* resumatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resumatch.png; sourceTree = "<group>"; };
+		04C3D77F1C82D22100DFC740 /* ApplicantController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicantController.h; sourceTree = "<group>"; };
+		04C3D7801C82D22100DFC740 /* ApplicantController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicantController.m; sourceTree = "<group>"; };
+		04C3D7821C82D81F00DFC740 /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = "<group>"; };
 		3097E42F3347B366F820E2BE /* bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar@2x.png"; sourceTree = "<group>"; };
 		3097E87A09F37B69F21F5395 /* GGOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGOverlayView.h; sourceTree = "<group>"; };
 		3097E8816E477D6DF94230B5 /* thumbs_up_300x300@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs_up_300x300@2x.png"; sourceTree = "<group>"; };
@@ -126,6 +131,7 @@
 		3097E4AA193A1D6C857A82A5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				04C3D7821C82D81F00DFC740 /* upload.png */,
 				04C3D77D1C82B45000DFC740 /* resumatch.png */,
 				55F5A2C41C82863400AB2BEC /* Karen_Meyer.png */,
 				55F5A2C51C82863400AB2BEC /* Ethan_Burton.png */,
@@ -184,6 +190,8 @@
 				CCD535FD1889D55400146C68 /* AppDelegate.h */,
 				CCD535FE1889D55400146C68 /* AppDelegate.m */,
 				CCD536001889D55400146C68 /* Main.storyboard */,
+				04C3D77F1C82D22100DFC740 /* ApplicantController.h */,
+				04C3D7801C82D22100DFC740 /* ApplicantController.m */,
 				CCD536031889D55400146C68 /* ViewController.h */,
 				CCD536041889D55400146C68 /* ViewController.m */,
 				CCD536061889D55400146C68 /* Images.xcassets */,
@@ -323,6 +331,7 @@
 				6A752D7A1C825EC70018B996 /* resume.png in Resources */,
 				04C3D77E1C82B45000DFC740 /* resumatch.png in Resources */,
 				3097E9B38DFC38A07F22DEB2 /* thumbs_up_300x300@2x.png in Resources */,
+				04C3D7831C82D81F00DFC740 /* upload.png in Resources */,
 				3097E888C9D05B50ACCAC918 /* trollface_300x200@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C3D7811C82D22100DFC740 /* ApplicantController.m in Sources */,
 				CCD536051889D55400146C68 /* ViewController.m in Sources */,
 				CCD535FF1889D55400146C68 /* AppDelegate.m in Sources */,
 				CCD535FB1889D55400146C68 /* main.m in Sources */,
