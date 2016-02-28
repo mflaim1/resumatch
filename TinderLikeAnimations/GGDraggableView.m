@@ -14,13 +14,15 @@
 @property (strong, nonatomic) NSMutableArray *adminAssistantArray;
 @property(nonatomic,strong) UIImageView *imageView;
 @property(nonatomic,strong) UIScrollView *scrollview;
+@property int index;
 
 @end
 
 @implementation GGDraggableView
-@synthesize scrollview,imageView;
+@synthesize scrollview,imageView,marketingArray, index;
 - (id)initWithFrame:(CGRect)frame
 {
+    index=0;
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
@@ -37,9 +39,11 @@
     NSMutableDictionary *tagDict= [[NSMutableDictionary alloc] init];
     NSMutableDictionary *photoDict= [[NSMutableDictionary alloc] init];
     
+ 
+    
     //Arrays of Resumes based on tags
     NSArray *engineerArray = [NSArray arrayWithObjects:@"Charles_Evans.png", @"Grace_West.png",nil];
-    NSArray *marketingArray = [NSArray arrayWithObjects:@"Aiden_Day.png", @"Monica_Watson.png",nil];
+    marketingArray = [NSMutableArray arrayWithObjects:@"Aiden_Day.png", @"Monica_Watson.png", @"Karen_Meyer.png", @"Ethan_Burton.png", @"Valerie_Wilmer.png",nil];
     NSArray *accountantArray = [NSArray arrayWithObjects:@"Jesse_Kendall.png", @"Bea_Counter.png",nil];
     NSArray *adminAssistantArray = [NSArray arrayWithObjects:@"Jane_Smith.png", @"Avery_Walker.png",nil];
     
@@ -62,11 +66,15 @@
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Avery_Walker.png"];
     [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Jane_Smith.png"];
     [photoDict setObject:[NSNumber numberWithBool:true] forKey:@"Monica_Watson.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Karen_Meyer.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Ethan_Burton.png"];
+    [photoDict setObject:[NSNumber numberWithBool:false] forKey:@"Valerie_Wilmer.png"];
     NSLog(@"%@", photoDict);
 
 
     return self;
 }
+
 
 - (void)loadImageAndStyle
 {
@@ -132,7 +140,16 @@
         };
         case UIGestureRecognizerStateEnded: {
             //load another picture here
+            //make an index variable and have it load the next index when the previous image is swiped
             [self resetViewPositionAndTransformations];
+            
+            //need to index through the resumes here
+            index++;
+            if(index >= marketingArray.count){
+                index = 0;
+            }
+            NSLog(@" Array %@",marketingArray[index]);
+            imageView.image = [UIImage imageNamed:marketingArray[index]];
             break;
         };
         case UIGestureRecognizerStatePossible:break;
@@ -226,6 +243,7 @@
 
 - (void)resetViewPositionAndTransformations
 {
+    
     [UIView animateWithDuration:0.2
                      animations:^{
         self.center = self.originalPoint;
